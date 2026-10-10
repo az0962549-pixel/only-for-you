@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>給學長的小秘密 ♡</title>
+<style>
+*{box-sizing:border-box}
+body{
+  margin:0;background:#f2f6fb;color:#53647a;
+  font-family:"Noto Serif TC","Songti TC",serif;
+  min-height:100vh;display:flex;align-items:center;
+  justify-content:center;padding:20px;
+}
+.wrap{width:100%;max-width:430px}
+.card{
+  background:#fff;border:1px solid #e3eaf3;
+  border-radius:24px;padding:25px 21px;
+  box-shadow:0 8px 30px #dce5f020;
+}
+.center{text-align:center}
+.small{
+  font:10px Arial,sans-serif;letter-spacing:3px;
+  color:#9aaabe;
+}
+.title{font-size:25px;font-weight:400;letter-spacing:1px}
+.note{
+  font:13px/1.9 Arial,"Noto Sans TC",sans-serif;
+  color:#8491a3;
+}
+.heart{font-size:42px;color:#a8bad3;margin:20px 0}
+.line{height:1px;background:#e9eef5;margin:20px 0}
+input{
+  width:100%;padding:14px;border:1px solid #dce5f0;
+  border-radius:12px;text-align:center;font-size:18px;
+  letter-spacing:7px;background:#fbfcfe;
+}
+button{
+  cursor:pointer;border:1px solid #dce5f0;
+  border-radius:13px;padding:12px;
+  min-height:45px;background:#fff;color:#52647b;
+  font-size:14px;transition:.2s;
+}
+button:active{background:#e8eff9}
+.primary{background:#e8eff9;border-color:#d6e2f2}
+.full{width:100%}
+.hide{display:none!important}
+.progress{
+  height:3px;background:#e8edf4;
+  border-radius:10px;overflow:hidden;margin-top:12px;
+}
+.bar{height:100%;background:#94accb;width:0;transition:.3s}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}
+.options{display:grid;gap:9px}
+.options button{text-align:left}
+.star{font-size:28px;border:0;background:transparent;padding:6px}
+.feedback{
+  min-height:28px;text-align:center;
+  font:13px/1.8 Arial,sans-serif;color:#8192a8;
+  margin-top:12px;
+}
+.letter{
+  background:#f8fafd;border:1px solid #edf0f5;
+  border-radius:16px;padding:18px;
+  font:14px/2 Arial,"Noto Sans TC",sans-serif;
+  color:#596a80;text-align:left;
+}
+.letter p{margin:0 0 14px}
+</style>
+</head>
+
+<body>
+<div class="wrap">
+
+<!-- 密碼頁 -->
+<section id="lock" class="card center">
+  <div class="small">A LITTLE SECRET</div>
+  <div class="heart">♡</div>
+  <h1 class="title">給特別的你</h1>
+  <p class="note">這裡藏著一份小小的驚喜。</p>
+  <div class="line"></div>
+
+  <form id="passwordForm">
+    <label class="small" for="password">請輸入解鎖密碼</label>
+    <input id="password" type="password" inputmode="numeric"
+      maxlength="4" placeholder="· · · ·" required>
+    <button class="primary full" style="margin-top:14px">
+      打開秘密 ♡
+    </button>
+  </form>
+  <p id="passwordMsg" class="note">提示：一個特別的日子</p>
+  <div class="small" style="margin-top:20px">MADE WITH LOVE</div>
+</section>
+
+<!-- 互動頁 -->
+<section id="game" class="card hide">
+  <div style="display:flex;justify-content:space-between">
+    <span class="small">我們的小故事</span>
+    <span id="count" class="small">01 / 08</span>
+  </div>
+  <div class="progress"><div id="bar" class="bar"></div></div>
+
+  <div class="center" style="padding:24px 0 15px">
+    <div id="icon" class="heart">♡</div>
+    <h2 id="question" class="title">秘密卡片</h2>
+    <p id="description" class="note">選一張卡片吧。</p>
+  </div>
+
+  <div id="gameArea"></div>
+  <p id="feedback" class="feedback" aria-live="polite"></p>
+  <button id="next" class="primary full hide">下一幕 →</button>
+  <p class="small center" style="margin-top:20px">慢慢來，別著急 ♡</p>
+</section>
+
+<!-- 結尾 -->
+<section id="ending" class="card center hide">
+  <div class="small">最後一個小驚喜</div>
+  <div class="heart">♡</div>
+  <h2 class="title">你已經全部解鎖了</h2>
+  <p class="note">接下來，有一段話想留給你。</p>
+  <div class="line"></div>
+
+  <button id="openLetter" class="primary full">
+    閱讀最後一封信 ✉
+  </button>
+
+  <article id="letter" class="letter hide" style="margin-top:15px">
+    <p>學長：</p>
+
+    <p>其實有些話我想跟你說很久了，只是每次真的想說的時候，又不知道該從哪裡開始。</p>
+
+    <p>我知道你不是一個什麼事情都會直接說出來的人。有時候你心情不好，可能會選擇自己承受，不想讓別人知道。但我還是希望，如果你真的很難過、很生氣，或是遇到什麼不開心的事情，都可以試著跟我說說看。</p>
+
+    <p>你不用每次都說沒事，也不用擔心說出來會不會讓別人更難過。我不一定每次都能給你很好的建議，也不一定真的懂你所有的感受，但至少，我願意認真聽你說。</p>
+
+    <p>我有時候可能很笨，不太會表達自己的想法，也可能因為太在意一些事情，反而不知道怎麼跟你相處。如果有時候讓你覺得奇怪，或是讓你感到困擾，我希望你知道，那並不是我不在乎你。</p>
+
+    <p>其實我很珍惜我們聊天的時候。可能對你來說只是很平常的幾句話，但對我來說，有些小小的瞬間真的會讓我開心很久。有時候只是你的一句關心，或是你願意跟我分享自己的事情，我都會默默記在心裡。</p>
+
+    <p>我不希望你總是勉強自己裝作沒事，也不希望你覺得所有事情都只能自己解決。你也可以有脆弱的時候，可以有心情不好的時候，可以什麼都不想做。你不需要一直表現得很好，才值得被關心。</p>
+
+    <p>當然，我也知道每個人都需要自己的空間。我不會要求你什麼事情都一定要告訴我，只是想讓你知道，如果有一天你真的想找人聊聊，我會願意聽。</p>
+
+    <p>最後，希望你可以好好照顧自己，不要總是把不開心的事情藏起來，也不要因為別人的事情就忘記照顧自己的心情。你難過的時候，可以慢慢整理自己的情緒；累的時候，也可以好好休息。</p>
+
+    <p>謝謝你出現在我的生活裡，也謝謝你願意讓我認識你。</p>
+
+    <p>這些話可能有點長，但每一句都是我真的想告訴你的。</p>
+
+    <p>希望以後的你，每天都能比昨天開心一點。♡</p>
+
+    <p style="text-align:right">—— 想好好珍惜這份相遇的我</p>
+  </article>
+
+  <button id="replay" class="full" style="margin-top:12px">
+    重新玩一次 ↻
+  </button>
+  <p class="small" style="margin-top:22px">希望你今天也有好心情 ♡</p>
+</section>
+
+</div>
+
+<script>
+const $ = id => document.getElementById(id);
+
+let stage = 0;
+let stars = 0;
+let puzzle = 0;
+
+const scenes = [
+{
+ icon:"✉", q:"第一幕｜秘密卡片",
+ desc:"挑一張卡，看看藏著什麼。",
+ html:()=>`<div class="grid">
+ ${["♡","✧","☾"].map((x,i)=>`<button data-card="${i}">${x}<br>秘密 ${i+1}</button>`).join("")}
+ </div>`,
+ act:b=>[
+ "希望你每天都有好心情。",
+ "累了就休息，不用逞強。",
+ "今天也要記得照顧自己。"
+ ][+b.dataset.card]
+},
+{
+ icon:"☁", q:"第二幕｜直覺二選一",
+ desc:"選一個你喜歡的。",
+ html:()=>`<div class="options">
+ <button data-choice="0">☾　深夜聊天</button>
+ <button data-choice="1">☀　一起出去玩</button>
+ </div>`,
+ act:b=>+b.dataset.choice===0?
+ "你選了深夜聊天 ♡":"你選了一起出去玩 ♡"
+},
+{
+ icon:"✧", q:"第三幕｜收集星星",
+ desc:"點亮五顆星星就過關。",
+ html:()=>{
+ stars=0;
+ return `<div class="center">
+ ${Array.from({length:5},(_,i)=>`<button class="star" data-star="${i}">☆</button>`).join("")}
+ <p id="starNum" class="note">0 / 5</p></div>`;
+ },
+ act:b=>{
+   if(!b.dataset.done){
+     b.dataset.done="1";
+     b.textContent="★";
+     stars++;
+     $("starNum").textContent=stars+" / 5";
+   }
+   return stars===5?"星星收集完成了！♡":"";
+ }
+},
+{
+ icon:"♡", q:"第四幕｜愛心小拼圖",
+ desc:"依序找到 1、2、3。",
+ html:()=>`<div class="grid">
+ ${["♡","2","1","3","✧","☾"].map(x=>`<button data-piece="${x}">${x}</button>`).join("")}
+ </div>`,
+ act:b=>{
+   if(!["1","2","3"].includes(b.dataset.piece)) return "";
+   if(+b.dataset.piece===puzzle+1){
+     puzzle++;
+     b.textContent="♡";
+     return puzzle===3?"拼好愛心了！":"答對了，再一個！";
+   }
+   puzzle=0;
+   return "順序錯了，再試一次。";
+ }
+},
+{
+ icon:"🎁", q:"第五幕｜幸運小禮物",
+ desc:"選一個屬於你的幸運。",
+ html:()=>`<div class="grid">
+ ${["🎀","🕊️","🧸"].map((x,i)=>`<button data-gift="${i}" style="font-size:25px">${x}</button>`).join("")}
+ </div>`,
+ act:b=>[
+ "你的幸運：遇見一點小驚喜。",
+ "你的幸運：被溫柔地理解。",
+ "你的幸運：煩惱少一點，快樂多一點。"
+ ][+b.dataset.gift]
+},
+{
+ icon:"⌕", q:"第六幕｜找出隱藏愛心",
+ desc:"愛心藏在九格其中一格。",
+ html:()=>`<div class="grid">
+ ${Array.from({length:9},(_,i)=>`<button data-find="${i}">·</button>`).join("")}
+ </div>`,
+ act:b=>{
+   if(+b.dataset.find===4){
+     b.textContent="♡";
+     return "找到了！眼力真好。";
+   }
+   b.textContent="✧";
+   return "";
+ }
+},
+{
+ icon:"☁", q:"第七幕｜選一句給自己的話",
+ desc:"選一句今天想送給自己的話。",
+ html:()=>`<div class="options">
+ <button data-self="0">我也值得被好好對待。 ♡</button>
+ <button data-self="1">不用什麼都自己承受。</button>
+ <button data-self="2">慢慢來，我已經很努力了。</button>
+ </div>`,
+ act:b=>[
+ "記得喔，你也值得被關心、被珍惜。♡",
+ "你可以找人聊聊，不需要什麼都自己扛。",
+ "不用急著變得完美，現在的你也很好。"
+ ][+b.dataset.self]
+},
+{
+ icon:"✉", q:"第八幕｜最後的驚喜",
+ desc:"點開最後一份小禮物吧。",
+ html:()=>`<button id="surprise" class="primary full">打開最後的驚喜 ♡</button>`,
+ act:()=>"恭喜你，所有關卡都完成了！♡"
+}
+];
+
+function render(){
+ const s=scenes[stage];
+ $("count").textContent=
+   String(stage+1).padStart(2,"0")+" / 08";
+ $("bar").style.width=(stage/8*100)+"%";
+ $("icon").textContent=s.icon;
+ $("question").textContent=s.q;
+ $("description").textContent=s.desc;
+ $("gameArea").innerHTML=s.html();
+ $("feedback").textContent="";
+ $("next").classList.add("hide");
+
+ $("gameArea").querySelectorAll("button").forEach(b=>{
+   b.addEventListener("click",()=>{
+     const result=s.act(b);
+     if(result){
+       $("feedback").textContent=result;
+       $("next").classList.remove("hide");
+     }
+   });
+ });
+}
+
+$("passwordForm").addEventListener("submit",e=>{
+ e.preventDefault();
+ if($("password").value==="1105"){
+   $("lock").classList.add("hide");
+   $("game").classList.remove("hide");
+   render();
+ }else{
+   $("passwordMsg").textContent="密碼不對喔，再猜猜看 ♡";
+   $("password").value="";
+ }
+});
+
+$("next").addEventListener("click",()=>{
+ stage++;
+ if(stage>=scenes.length){
+   $("game").classList.add("hide");
+   $("ending").classList.remove("hide");
+   $("bar").style.width="100%";
+ }else{
+   render();
+ }
+});
+
+$("openLetter").addEventListener("click",()=>{
+ $("letter").classList.toggle("hide");
+ $("openLetter").textContent=
+   $("letter").classList.contains("hide")?
+   "閱讀最後一封信 ✉":"收起信件 ×";
+});
+
+$("replay").addEventListener("click",()=>{
+ stage=0;stars=0;puzzle=0;
+ $("ending").classList.add("hide");
+ $("letter").classList.add("hide");
+ $("password").value="";
+ $("passwordMsg").textContent="提示：一個特別的日子";
+ $("lock").classList.remove("hide");
+});
+</script>
+</body>
+</html>
